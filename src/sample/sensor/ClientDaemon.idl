@@ -1,6 +1,6 @@
 module clientDaemon {
 
     interface ClientDaemon {
-        notificarGui(string notificação);
+        notificarGui(string notificacaoID, string notificacao);
     };
 };
