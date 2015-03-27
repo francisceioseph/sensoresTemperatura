@@ -1,6 +1,6 @@
 module sensorTemperatura {
 
     interface SensorTemperatura {
-        alterarTemperatura(float temperatura);
+        void alterarTemperatura(in float temperatura);
     };
 };

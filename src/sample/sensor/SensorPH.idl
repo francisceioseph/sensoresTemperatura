@@ -1,6 +1,6 @@
 module sensorPH {
 
     interface SensorPH {
-        alterarPH(float ph);
+        void alterarPH(in float ph);
     };
 };

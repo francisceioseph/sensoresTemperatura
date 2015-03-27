@@ -1,6 +1,6 @@
 module sensorCor {
 
     interface SensorCor {
-        alterarCor(float cor)
+        void alterarCor(in float cor);
     };
 };
