@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
@@ -31,8 +32,13 @@ public class SensorCorServer extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../view/sensor.fxml"));
-        primaryStage.setTitle("Sensor");
+        primaryStage.setTitle("Color Sensor");
         primaryStage.setScene(new Scene(root));
+        primaryStage.getIcons().add(
+                new Image(
+                        getClass().getResourceAsStream("../icons/color.png")
+                )
+        );
         primaryStage.show();
     }
 
