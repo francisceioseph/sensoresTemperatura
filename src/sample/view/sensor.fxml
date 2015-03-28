@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="300.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SensorController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="61.0" prefWidth="300.0" spacing="5.0">
+         <children>
+            <Label fx:id="sensorType" text="Sensor Type">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
+            <TextField fx:id="sensorUUID" alignment="CENTER" editable="false" focusTraversable="false" prefHeight="25.0" prefWidth="226.0" />
+         </children>
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+      <Label fx:id="sensorValue" alignment="CENTER" contentDisplay="CENTER" maxHeight="300.0" maxWidth="300.0" minHeight="120.0" minWidth="300.0" prefHeight="120.0" prefWidth="300.0" text="00,0" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+         <font>
+            <Font size="110.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <ProgressBar fx:id="progressIndicator" prefHeight="20.0" prefWidth="253.0" progress="0.0" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" />
+   </padding>
+</VBox>

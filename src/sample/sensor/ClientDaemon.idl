@@ -1,6 +1,0 @@
-module clientDaemon {
-
-    interface ClientDaemon {
-        void notificarGui(in string notificacaoID, in string notificacao);
-    };
-};

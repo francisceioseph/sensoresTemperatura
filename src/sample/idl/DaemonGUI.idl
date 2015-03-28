@@ -1,0 +1,6 @@
+module daemonGUI {
+
+    interface DaemonGUI {
+        void notificarGui(in string notificacaoID, in string notificacao);
+    };
+};
