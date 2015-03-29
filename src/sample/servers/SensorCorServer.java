@@ -1,11 +1,14 @@
 package sample.servers;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CORBA.Object;
@@ -19,8 +22,8 @@ import org.omg.PortableServer.POAHelper;
 import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
 import org.omg.PortableServer.POAPackage.ServantNotActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
-import sample.SensorType;
-import sample.Singleton;
+import sample.model.SensorType;
+import sample.model.Singleton;
 import sample.idl.sensorCor.SensorCorImplementation;
 
 import java.util.UUID;
@@ -39,12 +42,21 @@ public class SensorCorServer extends Application{
                         getClass().getResourceAsStream("../icons/color.png")
                 )
         );
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
         primaryStage.show();
     }
 
     public static void main(String args[]){
         String javaFXOptions[] = {};
 
+        Singleton.INSTANCE.args = args;
         Singleton.INSTANCE.sensorType = SensorType.COLOR;
         Singleton.INSTANCE.sensorID = UUID.randomUUID().toString();
         Singleton.INSTANCE.sensorMeasurementsLimit = 80;

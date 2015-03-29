@@ -1,11 +1,14 @@
 package sample.servers;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.omg.CORBA.ORB;
 import org.omg.CORBA.ORBPackage.InvalidName;
 import org.omg.CORBA.Object;
@@ -20,6 +23,7 @@ import org.omg.PortableServer.POAManagerPackage.AdapterInactive;
 import org.omg.PortableServer.POAPackage.ServantNotActive;
 import org.omg.PortableServer.POAPackage.WrongPolicy;
 import sample.idl.daemonGUI.DaemonGUIImplementation;
+import sample.model.Singleton;
 
 /**
  * Created by francisco on 27/03/15.
@@ -36,12 +40,23 @@ public class DaemonGUIServer extends Application{
                         getClass().getResourceAsStream("../icons/monitor.png")
                 )
         );
+
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
+
         primaryStage.show();
     }
 
     public static void main(String args[]){
+        Singleton.INSTANCE.args = args;
+        String javaFXOptions[] = {};
+
         try{
-            String javaFXOptions[] = {};
 
             ORB orb = ORB.init(args, null);
 

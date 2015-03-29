@@ -26,22 +26,22 @@ public class SensorPHClient {
             };
 
 
-            Object sensorCorReference = nameService.resolve(sensorPHName);
-            sensorPH.SensorPH sensorPHObject = sensorPH.SensorPHHelper.narrow(sensorCorReference);
+            Object sensorPHReference = nameService.resolve(sensorPHName);
+            sensorPH.SensorPH sensorPHObject = sensorPH.SensorPHHelper.narrow(sensorPHReference);
 
             return sensorPHObject;
         }
         catch (InvalidName invalidName) {
-            invalidName.printStackTrace();
+            System.out.println("Nome de Serviço Inválido.");
         }
         catch (CannotProceed cannotProceed) {
-            cannotProceed.printStackTrace();
+            System.out.println("Não foi possível prosseguir com a solicitação");
         }
         catch (NotFound notFound) {
-            notFound.printStackTrace();
+            System.out.println("Objeto não encontrado");
         }
         catch (org.omg.CosNaming.NamingContextPackage.InvalidName invalidName) {
-            invalidName.printStackTrace();
+            System.out.println("Nome de Serviço Inválido.");
         }
 
         return null;

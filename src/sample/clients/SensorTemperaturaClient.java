@@ -32,16 +32,16 @@ public class SensorTemperaturaClient {
             return sensorTemperaturaObject;
         }
         catch (InvalidName invalidName) {
-            invalidName.printStackTrace();
+            System.out.println("Nome de Serviço Inválido.");
         }
         catch (CannotProceed cannotProceed) {
-            cannotProceed.printStackTrace();
+            System.out.println("Não foi possível prosseguir com a solicitação");
         }
         catch (NotFound notFound) {
-            notFound.printStackTrace();
+            System.out.println("Objeto não encontrado");
         }
         catch (org.omg.CosNaming.NamingContextPackage.InvalidName invalidName) {
-            invalidName.printStackTrace();
+            System.out.println("Nome de Serviço Inválido.");
         }
 
         return null;

@@ -5,14 +5,16 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.Singleton;
+import javafx.stage.Window;
+import sample.model.Singleton;
 import sample.model.SensorsInformation;
 import sample.servers.DaemonGUIServer;
 
@@ -34,14 +36,17 @@ public class Controller implements Initializable{
     }
 
     public void about(ActionEvent actionEvent) {
+        Scene sourceScene = this.sensorsTableView.getScene();
+        this.loadWindow("../view/about.fxml", "About" ,sourceScene.getWindow());
     }
 
     public void sendValue(ActionEvent actionEvent) {
-        loadSendValueWindow();
+        Scene sourceScene = this.sensorsTableView.getScene();
+        this.loadWindow("../view/sendValue.fxml", "Send Value to Sensor", sourceScene.getWindow());
     }
 
-    private void loadSendValueWindow() {
-        FXMLLoader loader = new FXMLLoader(DaemonGUIServer.class.getResource("../view/sendValue.fxml"));
+    private void loadWindow(String fxmlPath, String windowTitle, Window currentWindow) {
+        FXMLLoader loader = new FXMLLoader(DaemonGUIServer.class.getResource(fxmlPath));
         Parent root = null;
 
         try {
@@ -49,8 +54,10 @@ public class Controller implements Initializable{
             SendValueController controller = loader.getController();
 
             Stage stage = new Stage();
-            stage.setTitle("Send Value to Sensor");
+            stage.setTitle(windowTitle);
             stage.setScene(new Scene(root));
+            stage.initOwner(currentWindow);
+            stage.initModality(Modality.WINDOW_MODAL);
             stage.show();
         }
         catch (IOException e) {

@@ -1,7 +1,7 @@
 package sample.idl.daemonGUI;
 
 import javafx.application.Platform;
-import sample.Singleton;
+import sample.model.Singleton;
 import sample.model.SensorsInformation;
 
 /**

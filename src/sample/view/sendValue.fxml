@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="253.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SendValueController">
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="355.0" prefWidth="341.0" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.SendValueController">
    <children>
+      <Label text="Sensor Type">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="sensorTypeChoiceBox" prefHeight="26.0" prefWidth="230.0" />
       <Label text="Sensor UUID">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <TextField fx:id="sensorIDTextField" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" />
+      <TextField fx:id="sensorIDTextField" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="265.0" />
       <Label text="Sensor Value">
          <font>
             <Font size="23.0" />
